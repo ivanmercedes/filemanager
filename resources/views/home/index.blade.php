@@ -10,7 +10,7 @@
         <h3>Estadísticas</h3>
     </div>
 
-    @include('home.statspill')
+    @include('home.datacard')
 
 
     <div class="row">
