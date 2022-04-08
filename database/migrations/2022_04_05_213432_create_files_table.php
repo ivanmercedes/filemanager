@@ -15,6 +15,13 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('status', ['activo', 'borrador', 'privado']);
+            $table->text('description')->nullable();
+            $table->string('medias')->nullable();
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
             $table->timestamps();
         });
     }
