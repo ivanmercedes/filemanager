@@ -19,8 +19,10 @@
 
     <!-- Styles -->
 
-    @yield('header')
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendors/iconly/bold.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -82,7 +84,9 @@
                 </div>
             </div>
         </nav> --}}
-        <main class="">
+
+        @include('partials.sidebar')
+        <main id="main">
             @yield('content')
         </main>
     </div>
