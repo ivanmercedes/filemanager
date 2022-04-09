@@ -19,6 +19,7 @@ class CreateFilesTable extends Migration
             $table->enum('status', ['activo', 'borrador', 'privado']);
             $table->text('description')->nullable();
             $table->string('medias')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')
             ->on('users');

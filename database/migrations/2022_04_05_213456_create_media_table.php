@@ -19,6 +19,7 @@ class CreateMediaTable extends Migration
             $table->string('extension');
             $table->string('url');
             $table->tinyInteger('size')->unsigned();
+            $table->unsignedBigInteger('file_id');
             $table->foreign('file_id')
             ->references('id')
             ->on('files');
