@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']); 
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard.index'); 
+Route::get('files', [App\Http\Controllers\FileController::class, 'index'])->name('dashboard.files'); 
 

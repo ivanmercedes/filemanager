@@ -18,4 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::resource('/files', App\Http\Controllers\Api\FileController::class);
+
 Route::resource('/types', App\Http\Controllers\TypeController::class); 
