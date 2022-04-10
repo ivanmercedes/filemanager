@@ -23,6 +23,7 @@ class CreateFilesTable extends Migration
             $table->foreign('user_id')
             ->references('id')
             ->on('users');
+            $table->unsignedBigInteger('order');
             $table->timestamps();
         });
     }
