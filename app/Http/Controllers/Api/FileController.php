@@ -92,7 +92,7 @@ class FileController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->can('delete', $file)) return  response()->json([
+        if (!$user->can('delete', $file)) return  response()->json([
             'success' => false,
             'msg' => 'No puedes borrar este archivo.'
         ]);
