@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard.index'); 
 Route::get('files', [App\Http\Controllers\FileController::class, 'index'])->name('dashboard.files'); 
