@@ -6,7 +6,7 @@ use App\Models\File;
 use App\Helpers\AppHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
 class FileController extends Controller
 {
     public function __construct()
@@ -90,11 +90,17 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
+        $user = Auth::user();
+
+        if ($user->can('delete', $file)) return  response()->json([
+            'success' => false,
+            'msg' => 'No puedes borrar este archivo.'
+        ]);
+       
         File::find($file->id)->delete();
         return response()->json([
-            'success' => true,
-            'msg' => 'Archivo borrado con exito!'
+                'success' => true,
+                'msg' => 'Archivo borrado con exito!'
         ]);
-        
     }
 }
