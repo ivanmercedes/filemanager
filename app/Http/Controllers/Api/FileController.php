@@ -9,12 +9,16 @@ use App\Http\Controllers\Controller;
 
 class FileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except(['index']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $files = File::with('user')->with('type')->with('type.attributes')->paginate();
@@ -29,7 +33,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+         // TODO
     }
 
     /**
@@ -40,9 +44,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd(AppHelper::formatBytes($request->file('file')->getSize()));
-        // dd($request->file('file'));
+        // TODO
      
     }
 
@@ -65,7 +67,7 @@ class FileController extends Controller
      */
     public function edit(File $file)
     {
-        //
+        // TODO
     }
 
     /**
@@ -77,7 +79,7 @@ class FileController extends Controller
      */
     public function update(Request $request, File $file)
     {
-        //
+        // TODO
     }
 
     /**
