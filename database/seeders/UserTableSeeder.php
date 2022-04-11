@@ -21,7 +21,17 @@ class UserTableSeeder extends Seeder
             'email' => 'ivanmercede@gmail.com',
             'password' => bcrypt('123456')
         ]);
-        
+
         $user->roles()->attach(Role::where('name', 'admin')->first());
+
+        $user = User::create([
+            'name' => 'User ', 
+            'email' => 'me@me.com',
+            'password' => bcrypt('me')
+        ]);
+        
+        $user->roles()->attach(Role::where('name', 'user')->first());
+
+        
     }
 }
