@@ -101,7 +101,7 @@ const FormFile = () => {
                                                 placeholder={attribute.label}
                                                 onChange={console.log}
                                                 value={
-                                                    currentFile?.[
+                                                    currentFile?.attributes[
                                                         attribute.name
                                                     ]
                                                 }
