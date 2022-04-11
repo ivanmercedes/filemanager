@@ -68,10 +68,13 @@ const FileState = ({ children }) => {
                         `/api/files/${payload}`
                     );
 
-                    dispatch({
-                        type: types.deleteFile,
-                        payload,
-                    });
+                    if (response.data.success) {
+                        dispatch({
+                            type: types.deleteFile,
+                            payload,
+                        });
+                    }
+
                     Swal.fire(
                         response.data.msg,
                         "",
