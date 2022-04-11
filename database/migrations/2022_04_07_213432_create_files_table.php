@@ -29,6 +29,7 @@ class CreateFilesTable extends Migration
                 ->on('users');
             $table->unsignedBigInteger('order')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
