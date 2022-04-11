@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { AreaChartC } from "./Charts";
 import DataTable from "./FileTable";
-import FileState from "./FileTable/context/FileState";
+import FileState from "./FileTable/context/state";
 
 if (document.getElementById("download-chart")) {
     ReactDOM.render(<AreaChartC />, document.getElementById("download-chart"));

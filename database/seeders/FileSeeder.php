@@ -19,7 +19,11 @@ class FileSeeder extends Seeder
             File::create([
                 'name' => 'archivo '.$i, 
                 'status' => 'activo', 
-                'description' => 'lorem Ipsum dolor sit amet, consectetur adipis occurence velit.',
+                'type_id' => 2, 
+                'attributes' => [
+                    'nombrenomina' =>  'archivo', 
+                    'numero' =>  'lorem Ips tempor  inciduer, consectetur adipiscing elit', 
+                ], 
                 'user_id' => 1,
                 'medias' => [1,2,3,4],
                 'order' => $i

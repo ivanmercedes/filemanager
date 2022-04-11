@@ -1,6 +1,8 @@
 const types = {
     fetchFile: "fetchFile",
-    addFile: "addFile",
+    fetchTypes: "fetchTypes",
+    setAttributeInputs: "setAttributeInputs",
+    showForm: "showForm",
     updateFile: "updateFile",
     deleteFile: "deleteFile",
 };

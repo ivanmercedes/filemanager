@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/files', App\Http\Controllers\Api\FileController::class);
 
-Route::resource('/types', App\Http\Controllers\TypeController::class); 
+Route::resource('/types', App\Http\Controllers\Api\TypeController::class); 

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\File;
+use App\Models\Type;
 use App\Helpers\AppHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FileController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class FileController extends Controller
     public function index()
     {
         //
-        $files = File::with('user')->with('type')->with('type.attributes')->paginate();
+        $types = Type::with('attributes')->get();
 
-        return $files;
+        return $types;
     }
 
     /**
@@ -49,10 +49,10 @@ class FileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\File  $file
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(File $file)
+    public function show(Type $type)
     {
         //
     }
@@ -60,10 +60,10 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\File  $file
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(File $file)
+    public function edit(Type $type)
     {
         //
     }
@@ -72,10 +72,10 @@ class FileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\File  $file
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, File $file)
+    public function update(Request $request, Type $type)
     {
         //
     }
@@ -83,10 +83,10 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\File  $file
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(File $file)
+    public function destroy(Type $type)
     {
         //
     }

@@ -17,13 +17,17 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status', ['activo', 'borrador', 'privado']);
-            $table->text('description')->nullable();
+            $table->text('attributes')->nullable();
             $table->string('medias')->nullable();
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')
+                ->references('id')
+                ->on('types');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
-            $table->unsignedBigInteger('order');
+                ->references('id')
+                ->on('users');
+            $table->unsignedBigInteger('order')->nullable();
             $table->timestamps();
         });
     }
