@@ -61,17 +61,29 @@ const FileState = ({ children }) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Si",
             cancelButtonText: "No",
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                // TODO
-                dispatch({
-                    type: types.deleteFile,
-                    payload,
-                });
-                Swal.fire("Archivo eliminado!", "", "success");
+                try {
+                    const response = await window.axios.delete(
+                        `/api/files/${payload}`
+                    );
+
+                    dispatch({
+                        type: types.deleteFile,
+                        payload,
+                    });
+                    Swal.fire(
+                        response.data.msg,
+                        "",
+                        response.data.success ? "success" : "error"
+                    );
+                } catch (error) {
+                    Swal.fire("Ha occurido un error!", "Codigo #5001", "error");
+                }
             }
         });
     };
+
     useEffect(() => {
         setInitialState();
     }, []);
