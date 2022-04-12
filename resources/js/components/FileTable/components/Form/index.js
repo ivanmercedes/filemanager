@@ -111,16 +111,6 @@ const FormFile = () => {
                                 </>
                             ) : null}
 
-                            {/* <FormInput
-                                type="textarea"
-                                label="Descripción"
-                                name="name"
-                                size="col-12"
-                                placeholder="Escribe una descripción (opcional)"
-                                onChange={console.log}
-                                value={currentFile?.description}
-                            /> */}
-
                             <div className="col-12 d-flex justify-content-end">
                                 <button
                                     type="submit"
