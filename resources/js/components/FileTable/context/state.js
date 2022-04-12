@@ -87,6 +87,23 @@ const FileState = ({ children }) => {
         });
     };
 
+    const changePage = async ({ label, active }) => {
+        // console.log(label, active);
+
+        try {
+            const response = await window.axios.get(
+                `/api/files?page=${Number(label)}`
+            );
+
+            dispatch({
+                type: types.fetchFile,
+                payload: response.data,
+            });
+        } catch (error) {
+            console.log("Files: ", error);
+        }
+    };
+
     useEffect(() => {
         setInitialState();
     }, []);
@@ -102,6 +119,7 @@ const FileState = ({ children }) => {
                 onClickFileHandler,
                 onChangeType,
                 onClickDelete,
+                changePage,
             }}
         >
             {children}

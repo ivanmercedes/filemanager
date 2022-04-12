@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import AppContext from "../context/context";
+import Paginator from "./Paginator";
 import Tr from "./Tr";
 
 const headings = [
@@ -50,6 +51,7 @@ const Table = () => {
                             ))}
                         </tbody>
                     </table>
+                    <Paginator />
                 </div>
             </div>
         </div>
