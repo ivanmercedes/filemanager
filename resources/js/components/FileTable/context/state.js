@@ -87,12 +87,10 @@ const FileState = ({ children }) => {
         });
     };
 
-    const changePage = async ({ label, active }) => {
-        // console.log(label, active);
-
+    const changePage = async (page) => {
         try {
             const response = await window.axios.get(
-                `/api/files?page=${Number(label)}`
+                `/api/files?page=${Number(page)}`
             );
 
             dispatch({
