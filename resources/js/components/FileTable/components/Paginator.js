@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import useId from "../../../hooks/useId";
 import AppContext from "../context/context";
 
 const Paginator = () => {
@@ -21,11 +22,7 @@ const Paginator = () => {
                         <button
                             type="button"
                             onClick={() =>
-                                changePage(
-                                    previousPage.url[
-                                        previousPage.url.length - 1
-                                    ]
-                                )
+                                changePage(previousPage.url.split("=")[1])
                             }
                             className={`page-link`}
                         >
@@ -35,7 +32,7 @@ const Paginator = () => {
                 ) : null}
                 {Object.values(rest).map((link) => (
                     <li
-                        key={link.label}
+                        key={useId()}
                         className={`page-item ${link.active ? "active " : ""}`}
                     >
                         <button
@@ -53,9 +50,7 @@ const Paginator = () => {
                         <button
                             type="button"
                             onClick={() =>
-                                changePage(
-                                    nextPage.url[nextPage.url.length - 1]
-                                )
+                                changePage(nextPage.url.split("=")[1])
                             }
                             className={`page-link`}
                         >
