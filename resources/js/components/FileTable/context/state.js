@@ -69,6 +69,7 @@ const FileState = ({ children }) => {
                     );
 
                     if (response.data.success) {
+                        changePage(state.files.current_page);
                         dispatch({
                             type: types.deleteFile,
                             payload,

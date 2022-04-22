@@ -41,7 +41,7 @@ export default (state, action) => {
             return {
                 ...state,
                 files: {
-                    ...files,
+                    ...state.files,
                     data: state.files.data.filter(
                         (file) => file.id !== action.payload
                     ),
