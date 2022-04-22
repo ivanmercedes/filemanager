@@ -3,10 +3,12 @@ import AppContext from "../context/context";
 import Paginator from "./Paginator";
 import Tr from "./Tr";
 
+import TableRowLoading from "../../Loading/TableRowLoading";
+
 const headings = [
     "Nombre",
-    "Estado",
-    "Creado por",
+    // "Estado",
+    // "Creado por",
     "Agregado",
     "Actualizado",
     "Acciones",
@@ -16,9 +18,10 @@ const Table = () => {
     const appContext = useContext(AppContext);
     const { files, onClickFileHandler, onClickDelete } = appContext;
 
-    if (!files) return null;
+    if (!files) return <TableRowLoading />;
 
-    if (Object.keys(files).length < 0) return null;
+    if (Object.keys(files).length < 0)
+        return <h1>No hay archivos disponible...</h1>;
     return (
         <div className="card">
             <div className="card-body">
